@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import cls from "classnames";
 
 import "./Countdown.scss";
@@ -19,7 +19,16 @@ const Countdown = () => {
       return;
     }
 
-    console.log(d);
+    setDuration(d);
+    setPlaying(true);
+  };
+
+  const togglePlaying = useCallback(() => {
+    setPlaying(!playing);
+  }, [playing]);
+
+  const selectSpeed = (speed) => () => {
+    setSpeed(speed);
   };
 
   return (
@@ -37,21 +46,34 @@ const Countdown = () => {
         <div className="status-text">More than halfway there!</div>
         <div className="timer">
           <span>15:31</span>
-          {playing ? (
-            <button>
+          <button onClick={togglePlaying}>
+            {playing ? (
               <i className="material-icons">pause</i>
-            </button>
-          ) : (
-            <button>
+            ) : (
               <i className="material-icons">play_arrow</i>
-            </button>
-          )}
+            )}
+          </button>
         </div>
       </div>
       <div className="speed-controls">
-        <span className={cls({ selected: speed === 1 })}>1X</span>
-        <span className={cls({ selected: speed === 1.5 })}>1.5X</span>
-        <span className={cls({ selected: speed === 2 })}>2X</span>
+        <span
+          className={cls({ selected: speed === 1 })}
+          onClick={selectSpeed(1)}
+        >
+          1X
+        </span>
+        <span
+          className={cls({ selected: speed === 1.5 })}
+          onClick={selectSpeed(1.5)}
+        >
+          1.5X
+        </span>
+        <span
+          className={cls({ selected: speed === 2 })}
+          onClick={selectSpeed(2)}
+        >
+          2X
+        </span>
       </div>
     </div>
   );

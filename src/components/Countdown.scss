@@ -16,13 +16,74 @@
     }
     button {
       color: white;
-      background: #03dcac;
+      background: #00bfa5;
       border: none;
       text-transform: uppercase;
       padding: 10px 16px;
       outline: none;
       cursor: pointer;
       font-weight: bold;
+
+      &:active {
+        background-color: #008e76;
+      }
+    }
+  }
+  .countdown-body {
+    .status-text {
+      font-size: 16px;
+      font-weight: 500;
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+    .timer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        font-size: 100px;
+        font-weight: bold;
+        margin-right: 20px;
+      }
+      button {
+        background-color: transparent;
+        padding: 0;
+        margin: 0;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 50%;
+        outline: none;
+        vertical-align: middle;
+        border: 1px solid #000;
+        cursor: pointer;
+
+        &:active {
+          background-color: rgba(#000, 0.05);
+        }
+
+        i {
+          margin-top: 6px;
+        }
+      }
+    }
+  }
+  .speed-controls {
+    margin-top: 16px;
+
+    span {
+      margin: 8px;
+      padding: 8px 16px;
+      border: 1px solid #000;
+      cursor: pointer;
+      display: inline-block;
+      width: 30px;
+  
+      &.selected {
+        background-color: #888;
+        color: white;
+      }
     }
   }
 }
