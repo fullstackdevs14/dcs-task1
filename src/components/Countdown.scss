@@ -1,0 +1,28 @@
+.countdown {
+  .countdown-header {
+    padding: 20px;
+
+    span {
+      margin-right: 8px;
+    }
+    input {
+      border-radius: 0;
+      outline: none;
+      border: 1px solid #000;
+      padding: 8px;
+      width: 80px;
+      font-size: 16px;
+      margin-right: 8px;
+    }
+    button {
+      color: white;
+      background: #03dcac;
+      border: none;
+      text-transform: uppercase;
+      padding: 10px 16px;
+      outline: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
+}
